@@ -9,8 +9,9 @@
 
 ## Options Considered
 
-### Option A (Recommended): Commit pnpm build-script allowlist in `.npmrc`
-- 在仓库级 `.npmrc` 中声明：`onlyBuiltDependencies=better-sqlite3,esbuild`。
+### Option A (Recommended): Commit pnpm build-script allowlist
+- 使用 `pnpm approve-builds` 生成仓库级 allowlist（`pnpm-workspace.yaml` 中的 `allowBuilds`）。
+- 可选补充 `.npmrc` 的 `onlyBuiltDependencies` 作为显式说明。
 - 让 `pnpm` 仅允许这两个依赖在安装时执行 build/install scripts。
 - 保持安全收敛（不是全量放开），同时修复 native binding。
 
@@ -24,10 +25,13 @@
 
 ## Final Design
 采用 Option A：
-1. 新增 `.npmrc` 并配置 `onlyBuiltDependencies=better-sqlite3,esbuild`。
-2. 重新执行 `pnpm install` 触发依赖构建。
-3. 通过 `pnpm build`、`pnpm test` 验证迁移结果。
-4. 提交并推送 pnpm 迁移变更（`package.json`、`pnpm-lock.yaml`、`.npmrc`、删除 `package-lock.json`）。
+1. 通过 `pnpm approve-builds` 生成 `pnpm-workspace.yaml`，写入：
+   - `allowBuilds.better-sqlite3 = true`
+   - `allowBuilds.esbuild = true`
+2. 新增 `.npmrc` 并配置 `onlyBuiltDependencies=better-sqlite3,esbuild`（辅助说明）。
+3. 重新执行 `pnpm install` 触发依赖构建。
+4. 通过 `pnpm build`、`pnpm test` 验证迁移结果。
+5. 提交并推送 pnpm 迁移变更（`package.json`、`pnpm-lock.yaml`、`pnpm-workspace.yaml`、`.npmrc`、删除 `package-lock.json`）。
 
 ## Architecture Impact
 - 不改变应用运行架构（Fastify/JSON-RPC/REST/SQLite/SSE/API Key）。
