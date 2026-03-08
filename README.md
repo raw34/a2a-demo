@@ -1,0 +1,16 @@
+# a2a-demo
+
+Minimal Agent2Agent (A2A) demo project.
+
+## Layout
+
+- `agent-card/agent-card.json`: discovery metadata (`/.well-known/agent-card.json`)
+- `server/`: A2A server handlers and task lifecycle modules
+- `client/`: discovery, send, poll, and stream examples
+- `tests/`: contract and e2e tests
+
+## Next Steps
+
+1. Implement `SendMessage` in `server/handlers/send_message.py`
+2. Add task store in `server/task/store.py`
+3. Add SSE stream endpoint in `server/streaming/sse.py`
