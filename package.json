@@ -1,0 +1,42 @@
+{
+  "name": "a2a-demo",
+  "version": "1.0.0",
+  "description": "A2A demo service (TypeScript + Fastify + SQLite)",
+  "main": "dist/server.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node --import tsx --test tests/**/*.test.ts",
+    "dev": "tsx src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo \"no lint configured\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raw34/a2a-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raw34/a2a-demo/issues"
+  },
+  "homepage": "https://github.com/raw34/a2a-demo#readme",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "private": true,
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "fastify": "^5.6.1",
+    "pino": "^9.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

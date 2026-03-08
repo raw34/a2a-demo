@@ -1,1 +1,0 @@
-"""Client-side SendMessage placeholder."""

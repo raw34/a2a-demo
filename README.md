@@ -11,6 +11,6 @@ Minimal Agent2Agent (A2A) demo project.
 
 ## Next Steps
 
-1. Implement `SendMessage` in `server/handlers/send_message.py`
-2. Add task store in `server/task/store.py`
-3. Add SSE stream endpoint in `server/streaming/sse.py`
+1. Implement `SendMessage` in `src/handlers/sendMessage.ts`
+2. Add task store in `src/task/store.ts`
+3. Add SSE stream endpoint in `src/streaming/sse.ts`
