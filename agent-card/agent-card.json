@@ -1,6 +1,6 @@
 {
   "name": "a2a-demo-agent",
   "description": "Minimal A2A demo agent",
-  "url": "http://localhost:8080",
+  "url": "http://localhost:8080/a2a/jsonrpc",
   "version": "0.1.0"
 }
